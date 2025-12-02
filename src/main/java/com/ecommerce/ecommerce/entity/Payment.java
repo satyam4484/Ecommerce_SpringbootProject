@@ -1,0 +1,49 @@
+package com.ecommerce.ecommerce.entity;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import com.ecommerce.ecommerce.enums.PaymentMethod;
+import com.ecommerce.ecommerce.enums.PaymentStatus;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class Payment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
+    private BigDecimal amount;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod method;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentStatus status;
+
+    private String transactionId;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+}
