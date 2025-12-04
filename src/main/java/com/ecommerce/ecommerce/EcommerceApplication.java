@@ -11,3 +11,6 @@ public class EcommerceApplication {
 	}
 
 }
+
+
+// rest api --> controller --> service ( business logic) --> repository (db operation) -> db
