@@ -32,4 +32,6 @@ public class Address {
     private String country;
     @Column(nullable = false)
     private String contactNumber;
+
+    // user
 }

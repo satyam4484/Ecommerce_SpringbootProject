@@ -1,10 +1,9 @@
 package com.ecommerce.ecommerce.repository;
 
-import java.util.Locale.Category;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CategoryRepository extends JpaRepository<Category, Long> {
+import com.ecommerce.ecommerce.entity.Category;
 
-    
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 } 

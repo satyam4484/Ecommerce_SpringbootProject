@@ -7,5 +7,7 @@ import com.ecommerce.ecommerce.entity.Address;
 
 public interface AddressService { 
     Address addAddress(AddressRequestDto addressRequestDto);  
-    
+    List<Address> getAllAddress();
+    Address updateAddress(Long id, AddressRequestDto addressRequestDto);
+    void deleteAddress(Long id);
 }
